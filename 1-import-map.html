@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+   <meta charset='UTF-8'>
+   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+   <!--! Save this with a different name IMMEDIATELY so you don't overwrite the template -->
+
+   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+   <script type="importmap">
+      {
+         "imports": {
+            "react": "https://esm.sh/react?dev",
+            "react-dom/client": "https://esm.sh/react-dom/client?dev"
+         }
+      }
+   </script>
+   <script type='text/babel' data-type='module'>
+      'use strict'
+
+      import React, { StrictMode } from 'react'
+      import { createRoot } from 'react-dom/client'
+
+
+      function SayHi() {
+         return <p>Hello React!</p>
+      }
+
+      function Component() {
+         return <p>I'm a {'p'} element from <i>component.js</i></p>
+      }
+
+      createRoot(document.getElementById('root')).render(
+         <StrictMode>
+            <SayHi />
+            <Component />
+         </StrictMode>
+      )
+   </script>
+   <title>React Via Import Map</title>
+</head>
+
+<body>
+   <h1>React Via Import Map</h1>
+   <div id='root'></div>
+
+</body>
+
+</html>

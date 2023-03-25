@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+   <meta charset='UTF-8'>
+   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+   <!--! Save this with a different name IMMEDIATELY so you don't overwrite the template -->
+
+   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+   <!-- ! An external component:
+   <script type='text/babel' data-type='module' src='./component.js'></script> -->
+
+   <script type='text/babel' data-type='module'>
+      'use strict'
+
+      import React, { StrictMode } from 'https://esm.sh/react?dev'
+      import { createRoot } from 'https://esm.sh/react-dom/client?dev'
+
+      function SayHi() {
+         return <p>Hello React!</p>
+      }
+
+      function Component() {
+         return <p>I'm a {'p'} element from <i>component.js</i></p>
+      }
+
+      createRoot(document.getElementById('root')).render(
+         <StrictMode>
+            <SayHi />
+            <Component />
+         </StrictMode>
+      )
+   </script>
+   <title>React as ECMAScript Module</title>
+</head>
+
+<body>
+   <h1>React as ECMAScript Module</h1>
+   <div id='root'></div>
+
+</body>
+
+</html>
