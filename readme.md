@@ -61,7 +61,7 @@ To [run Create React App](#run-create-react-app), you'll be instructed to do it 
 
 ### package.json
 
-**package.json** is the file to organize your project's dependencies and metadata. You can open a terminal **in your project's folder** and run `npm init` to create your project's package.json, but if you don't, it will be created automatically when you install your first package package, for example by running `npm install react react-dom`. A package.json looks like this:
+**package.json** is the file to organize your project's dependencies and metadata. You can open a terminal **in your project's folder** and run `npm init` to create your project's package.json, but if you don't, it will be created automatically when you install your first package, for example by running `npm install react react-dom`. A package.json looks like this:
 
 ```json
 {
