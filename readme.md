@@ -95,7 +95,7 @@ In the above **package.json** example, `"react": "^18.2.0"` means that the proje
 
 A Content Delivery Network (CDN) is a server net. There are several ways to use React that involve [requesting it from a CDN](#using-react). This is how that request works:
 
-Let's say you have a website (**yoursite.com**) that links React from a CDN; that means its html document (**index.html**), which is stored in your server, links React from a CDN through a `<script>` tag (like this one: `<script src="https://esm.sh/react" type='module'></script>`).`<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>`
+Let's say you have a website (**yoursite.com**) that links React from a CDN; that means its html document (**index.html**), which is stored in your server, links React from a CDN through a `<script>` tag like `<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>`. That goes like this:
 
 1. When a user visits your website (**yoursite.com**), his browser sends a requests to your server, asking for **index.html**.
 2. Your server responds by sending **index.html** to the user's browser.
@@ -109,10 +109,12 @@ Let's say you have a website (**yoursite.com**) that links React from a CDN; tha
 
    In this case, the origin of **index.html** is **yoursite.com**, but the origin of React is its CDN, thus the user's browser sends a **crossorigin request** to get React.
 
-   A **crossorigin request** resolves differently depending its script tag's `crossorigin` attribute: If the attribute is not present, you'll get deficient error logging via `window.onerror`. If it's set to "anonymous", you'll get improved error logging. You can explicitly set it to "anonymous" by writing `crossorigin='anonymous'`, `crossorigin=''` or simply `crossorigin` (I use the last option in this documentation).
+   A **crossorigin request** resolves differently depending on its script tag's `crossorigin` attribute: If the attribute is not present, you'll get deficient error logging for the requested script (React in this case) when `window.onerror` triggers (`window.onerror` triggers when a resource failed to load or couldn't be used). If the `crossorigin` attribute is present, it the request is done using the **Cross-Origin-Resouce-Sharing** (CORS) Protocol, which enables the server to share more information or honor previously impossible requests, if the request comes from a trusted origin.
+
+   If `crossorigin` is set to "anonymous" and the server responds with the header `Access-Control-Allow-Origin: yoursite.com` or with `Access-Control-Allow-Origin: *`, it means **yoursite.com** is a trusted origin to make that GET request for the linked script (React), so you'll get improved error logging for that fetched script (React) when `window.onerror` triggers. You can set `crossorigin` to "anonymous" by writing `crossorigin='anonymous'`, `crossorigin=''`, `crossorigin=*nonExistentValue*` or simply `crossorigin` (I use the last option in this documentation).
 
    In our case, the user's browser sends a request to the React CDN, asking for the React script. This request includes an "Origin" header, which specifies the origin (**yoursite.com**) of the request.
-4. A server can restrict the set of origins that can access its resources. When the React CDN server receives the request, it checks the "Origin" header to ensure that the request is coming from an allowed origin. If the origin (**yoursite.com**) is allowed, the server responds by sending the React script to the user's browser.
+4. When the React CDN server receives the request, it checks the "Origin" header to ensure that the request is coming from an allowed origin. If the origin (**yoursite.com**) is allowed, the server responds by sending the React script to the user's browser, along with `Access-Control-Allow-Origin: yoursite.com` or `Access-Control-Allow-Origin: *` as a response header, thereby enabling you to see better React error messages whenever `window.onerror` triggers.
 
    You can check the **Access-Control-Allow-Origin HTTP response header** to see the allowed origins (in the case of React CDNs, it usually is "*", meaning all origins are allowed).
 
