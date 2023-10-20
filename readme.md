@@ -44,7 +44,7 @@ An **external script** is a separate **.js** file linked to the **.html** via th
 
 **Node.js** is a JavaScript runtime environment that allows you to run JS on a server, outside of a browser; it includes its own package manager, **npm** (Node package manager), and its own package runner, **npx** (It's not an acronym, but you can think of the command as **N**ode **P**ackage e**X**ecute).
 
-<span id='verify-intall_node'>**If you're instructed to run a command starting with `npm` or `npx`, you must have installed Node.js for the command to work**. To verify if you have Node.js: Open a terminal and run `node --version` (if you already have it, you'll get its version number, if not, you'll get an error); if you don't have Node.js, install it from https://nodejs.org (if the commands starting with `npm` or `npx` still don't work after that, close and re-open the terminal).</span>
+<span id='verify-node-is-installed'>**If you're instructed to run a command starting with `npm` or `npx`, you must have installed Node.js for the command to work**. To verify if you have Node.js: Open a terminal and run `node --version` (if you already have it, you'll get its version number, if not, you'll get an error); if you don't have Node.js, install it from https://nodejs.org (if the commands starting with `npm` or `npx` still don't work after that, close and re-open the terminal).</span>
 
 When you enter a command like `npx create-react-app` in a terminal:
 
@@ -160,7 +160,7 @@ That's it, now let's set up React!
 
 ### Babel via npm
 
-[Make sure you have Node.js installed](#verify-intall_node), open a terminal **in your project's folder's** and run these commands:
+[Make sure you have Node.js installed](#verify-node-is-installed), open a terminal **in your project's folder's** and run these commands:
 
 >`npm init -y`
 
@@ -284,7 +284,7 @@ Anyway, you can **import React from a CDN**:
 
 4. Via **npm**, with nothing else.
 
-   [Make sure you have Node.js installed](#verify-intall_node), open a terminal **in your project's folder's**, and run this command:
+   [Make sure you have Node.js installed](#verify-node-is-installed), open a terminal **in your project's folder's**, and run this command:
 
    >`npm install react react-dom`
 
@@ -298,7 +298,7 @@ Anyway, you can **import React from a CDN**:
 
    Of the following frameworks, only **Create React App** is a purely front-end framework (which means you might need to complement it with a backend framework, like **Express**), the rest are full-stack frameworks.
 
-   To use a framework, [make sure you have Node.js installed](#verify-intall_node), open a terminal **in your project's folder's**, and run the framework's command:
+   To use a framework, [make sure you have Node.js installed](#verify-node-is-installed), open a terminal **in your project's folder's**, and run the framework's command:
 
    [Create React App](https://create-react-app.dev/)
 
